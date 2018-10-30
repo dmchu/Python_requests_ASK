@@ -5,3 +5,5 @@ url = "http://local.school.portnov.com:4520/api/v1/activate/951/be66c53931bdfc7a
 response = requests.get(url)
 
 print(response.text)
+
+#{"status":"success","message":"User was activated"}
