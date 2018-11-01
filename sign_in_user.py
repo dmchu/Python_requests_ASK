@@ -3,7 +3,8 @@ import json
 
 url = "http://local.school.portnov.com:4520/api/v1/sign-in"
 
-payload = {'email': 'alina.korolevich@yopmail.com',
+payload = {
+	'email': 'alina.korolevich@yopmail.com',
 	'password': 'internship'
 	}
 headers = {
@@ -13,7 +14,9 @@ headers = {
 
 response = requests.post(url, data=json.dumps(payload), headers=headers)
 
-print(response.text)
+parsed_json=json.loads(response.text)
+
+token = parsed_json["token"]
 
 """
 {"user":{"id":951,"email":"john.smith3@yopmail.com",
