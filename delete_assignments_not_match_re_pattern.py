@@ -42,18 +42,18 @@ def delete_assignment_api():
     parsed_json = json.loads(r.text)
 
     for i in parsed_json:
-        if re.match(r"^([Q][A]\s[B][A][S][I][C]\s[1-9][0-9][0-9]$)", i['quiz']['name']):
-            assignment_group_id = i['assignmentGroupID']
+        # if re.match(r"^([Q][A]\s[B][A][S][I][C]\s[1-9][0-9][0-9]$)", i['quiz']['name']):
+        assignment_group_id = i['assignmentGroupID']
 
-            url = "http://local.school.portnov.com:4520/api/v1/assignment/{}".format(assignment_group_id)
-            response = requests.delete(url, headers=headers)
+        url = "http://local.school.portnov.com:4520/api/v1/assignment/{}".format(assignment_group_id)
+        response = requests.delete(url, headers=headers)
 
-            print(response.status_code)
-            print("Assignment: with {}  with id {} was permanently deleted".format(i['quiz']['name'], assignment_group_id))
+        print(response.status_code)
+        print("Assignment: with {}  with id {} was permanently deleted".format(i['quiz']['name'], assignment_group_id))
 
 
-        else:
-            continue
+        # else:
+        #     continue
 
 
 delete_assignment_api()
